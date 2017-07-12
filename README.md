@@ -30,6 +30,10 @@ A simple example using the custom ratio value `'16:9'`.
 
 ```css
 .aspect-box {
+    position: relative;
+}
+
+.aspect-box {
     aspect-ratio: '16:9';
 }
 ```
