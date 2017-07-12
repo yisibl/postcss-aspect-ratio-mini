@@ -46,9 +46,6 @@ A simple example using the custom ratio value `'16:9'`.
 }
 
 .aspect-box:before {
-    position: relative;
-    display: block;
-    content: "";
     padding-top: 56.25%;
 }
 ```

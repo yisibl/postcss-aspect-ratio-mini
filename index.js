@@ -4,9 +4,6 @@ var postcss = require('postcss')
 var defaults = {}
 
 defaults.pseudo = {
-  'position': 'relative',
-  'display': 'block',
-  'content': '""',
   'padding-top': '100%'
 }
 

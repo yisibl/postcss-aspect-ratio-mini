@@ -1,6 +1,6 @@
 {
   "name": "postcss-aspect-ratio-mini",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A PostCSS plugin to fix an element's dimensions to an aspect ratio.",
   "main": "index.js",
   "scripts": {
