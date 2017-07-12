@@ -1,0 +1,10 @@
+.aspect-box {
+    position: relative;
+}
+
+.aspect-box:before {
+    position: relative;
+    display: block;
+    content: "";
+    padding-top: 56.25%;
+}
