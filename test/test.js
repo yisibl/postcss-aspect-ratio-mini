@@ -32,3 +32,8 @@ test('damo', function(t) {
   compareFixtures(t, 'damo', 'should equal')
   t.end()
 })
+
+test('double-quote', function(t) {
+  compareFixtures(t, 'double-quote', 'should equal')
+  t.end()
+})

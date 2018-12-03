@@ -16,6 +16,6 @@ gulp.task('test', function() {
 
 gulp.task('default', ['test'])
 
-gulp.task('watch', function () {
-    gulp.watch(files, ['test'])
+gulp.task('watch', function() {
+  gulp.watch(files, ['test'])
 })

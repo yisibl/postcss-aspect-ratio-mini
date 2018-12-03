@@ -26,7 +26,7 @@ module.exports = postcss.plugin('postcss-layout', function(opts) {
 
 function processRatioValue(css, rule, decl) {
   var ratio = null
-  var re = /['']?(((?:\d*\.?\d*)?)(?:\:|\|)(\d+))['']?/g
+  var re = /[''""]?(((?:\d*\.?\d*)?)(?:\:|\|)(\d+))[''""]?/g
 
   ratio = decl.value
   ratio = ratio.replace(re, function(match, r, x, y) {
