@@ -1,0 +1,11 @@
+.aspect-box {
+    position: relative;
+}
+
+.aspect-box {
+    aspect-ratio: "0.1 / 0.3";
+}
+
+.aspect-box {
+    aspect-ratio: 1.1/1.21;
+}

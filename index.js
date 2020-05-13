@@ -1,4 +1,5 @@
 var postcss = require('postcss')
+var NP = require('number-precision')
 
 // Default properties for aspect ratios.
 var defaults = {}
@@ -24,13 +25,15 @@ module.exports = postcss.plugin('postcss-layout', function(opts) {
   }
 })
 
+// 解析 aspect-ratio 的值，支持 : | / 三种分隔符，分隔符前后可以有一个或多个空格，例如：
+// 16:9, 16 | 9, 16 / 9
 function processRatioValue(css, rule, decl) {
   var ratio = null
-  var re = /[''""]?(((?:\d*\.?\d*)?)(?:\:|\|)(\d+))[''""]?/g
+  var re = /['"]?(((?:\d*\.?\d*)?)(?:\s*[\:\|\/]\s*)(\d*\.?\d*))['"]?/g
 
   ratio = decl.value
   ratio = ratio.replace(re, function(match, r, x, y) {
-    return y / x * 100 + '%'
+    return NP.times(NP.divide(y, x), 100) + '%' // Use number-precision module to fix JS calculation precision problem.
   })
 
   return ratio
@@ -82,7 +85,7 @@ function objToRule(obj, clonedRule) {
       // If clonedRule was passed in, check for an existing property.
       if (clonedRule) {
         rule.each(function(decl) {
-          if (decl.prop == k) {
+          if (decl.prop === k) {
             decl.value = v
             found = true
             return false

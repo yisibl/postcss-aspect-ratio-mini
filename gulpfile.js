@@ -1,6 +1,5 @@
 var gulp = require('gulp')
 var postcss = require('gulp-postcss')
-var ifm = require('./index.js')
 var tape = require('gulp-tape')
 var tapDiff = require('tap-diff')
 
