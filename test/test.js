@@ -37,3 +37,8 @@ test('double-quote', function(t) {
   compareFixtures(t, 'double-quote', 'should equal')
   t.end()
 })
+
+test('number precision', function(t) {
+  compareFixtures(t, 'precision', 'should equal')
+  t.end()
+})

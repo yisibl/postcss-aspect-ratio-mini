@@ -1,3 +1,11 @@
+.aspect-box {
+    position: relative;
+}
+
 [aspectratio][aspect-ratio="16:9"] {
     aspect-ratio: '16:9';
+}
+
+[aspectratio][aspect-ratio="16/9"] {
+    aspect-ratio: 16 / 9;
 }

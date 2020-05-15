@@ -1,3 +1,8 @@
+# 1.1.0 - 2020-05-13
+* Support `/` separator(`aspect-ratio: 16 / 9`)
+* One or more whitespace characters are supported before or after the separator.
+* Use number-precision module to fix JS calculation precision problem.
+
 # 1.0.1 - 2018-12-03
 * Fix: `npm test` error(In Node.js 10.0.0, the callback parameter is no longer optional. Not passing it will throw a TypeError at runtime. See [doc](https://nodejs.org/api/fs.html#fs_fs_writefile_file_data_options_callback))
 
