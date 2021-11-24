@@ -4,7 +4,8 @@
   "description": "A PostCSS plugin to fix an element's dimensions to an aspect ratio.",
   "main": "index.js",
   "scripts": {
-    "test": "node ./test/test.js"
+    "test": "node ./test/test.js",
+    "format": "prettier -w **/*.js"
   },
   "repository": {
     "type": "git",
@@ -33,6 +34,7 @@
     "gulp": "^3.9.0",
     "gulp-postcss": "^8.0.0",
     "gulp-tape": "1.0.0",
+    "prettier": "^2.4.1",
     "tap-diff": "^0.1.1",
     "tape": "^5.0.0"
   }
