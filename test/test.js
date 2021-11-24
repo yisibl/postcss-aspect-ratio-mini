@@ -42,3 +42,14 @@ test('number precision', function(t) {
   compareFixtures(t, 'precision', 'should equal')
   t.end()
 })
+
+test('zero value', function(t) {
+  compareFixtures(t, 'zero', 'should equal')
+  t.end()
+})
+
+
+test('single value', function(t) {
+  compareFixtures(t, 'single', 'should equal')
+  t.end()
+})
