@@ -6,10 +6,3 @@
     aspect-ratio: 16   /     9;
 }
 
-.aspect-box {
-    aspect-ratio: '16   :   9';
-}
-
-.aspect-box {
-    aspect-ratio: '16 |  9';
-}

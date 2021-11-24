@@ -19,9 +19,8 @@ function compareFixtures(t, name, msg, opts, postcssOpts) {
   postcssOpts = postcssOpts || {}
   postcssOpts.from = filename('fixtures/' + name)
   opts = opts || {}
-  var actual = postcss()
-    .use(plugin(opts))
-    .process(read(postcssOpts.from), postcssOpts).css
+  // prettier-ignore
+  var actual = postcss().use(plugin(opts)).process(read(postcssOpts.from), postcssOpts).css
   var expected = read(filename('fixtures/' + name + '.expected'))
   fs.writeFileSync(filename('fixtures/' + name + '.actual'), actual)
   t.equal(actual, expected, msg)
