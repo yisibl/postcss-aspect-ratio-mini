@@ -5,34 +5,33 @@ var NP = require('number-precision')
 var defaults = {}
 
 defaults.pseudo = {
-  'padding-top': '100%'
+  'padding-top': '100%',
 }
 
-module.exports = postcss.plugin('postcss-layout', function(opts) {
+module.exports = postcss.plugin('postcss-layout', function (opts) {
   opts = opts || {}
   opts._grids = {}
   var grids = opts._grids
 
-  return function(css, result) {
-    css
-      .walkDecls(/^(aspect-ratio|aspect|ratio)$/, function(decl) {
-        var ratio = {}
-        ratio.value = processRatioValue(css, decl.parent, decl)
-        processRatioConf(css, decl.parent, decl, ratio)
+  return function (css, result) {
+    css.walkDecls(/^(aspect-ratio|aspect|ratio)$/, function (decl) {
+      var ratio = {}
+      ratio.value = processRatioValue(css, decl.parent, decl)
+      processRatioConf(css, decl.parent, decl, ratio)
 
-        aspectRatio(css, decl.parent, decl, ratio)
-      })
+      aspectRatio(css, decl.parent, decl, ratio)
+    })
   }
 })
 
-// 解析 aspect-ratio 的值，支持 : | / 三种分隔符，分隔符前后可以有一个或多个空格，例如：
-// 16:9, 16 | 9, 16 / 9
+// 解析 aspect-ratio 的值，仅支持 / 一种分隔符，分隔符前后可以有一个或多个空格，例如：
+// 16 / 9
 function processRatioValue(css, rule, decl) {
   var ratio = null
-  var re = /['"]?(((?:\d*\.?\d*)?)(?:\s*[\:\|\/]\s*)(\d*\.?\d*))['"]?/g
+  var re = /['"]?(((?:\d*\.?\d*)?)(?:\s*\/\s*)(\d*\.?\d*))['"]?/g
 
   ratio = decl.value
-  ratio = ratio.replace(re, function(match, r, x, y) {
+  ratio = ratio.replace(re, function (match, r, x, y) {
     return NP.times(NP.divide(y, x), 100) + '%' // Use number-precision module to fix JS calculation precision problem.
   })
 
@@ -69,13 +68,10 @@ function objToRule(obj, clonedRule) {
   var rule = clonedRule || postcss.rule()
   var skipKeys = ['selector', 'selectors', 'source']
 
-  if (obj.selector)
-    rule.selector = obj.selector
-  else if (obj.selectors)
-    rule.selectors = obj.selectors
+  if (obj.selector) rule.selector = obj.selector
+  else if (obj.selectors) rule.selectors = obj.selectors
 
-  if (obj.source)
-    rule.source = obj.source
+  if (obj.source) rule.source = obj.source
 
   for (var k in obj) {
     if (obj.hasOwnProperty(k) && !(skipKeys.indexOf(k) + 1)) {
@@ -84,7 +80,7 @@ function objToRule(obj, clonedRule) {
 
       // If clonedRule was passed in, check for an existing property.
       if (clonedRule) {
-        rule.each(function(decl) {
+        rule.each(function (decl) {
           if (decl.prop === k) {
             decl.value = v
             found = true
@@ -94,8 +90,7 @@ function objToRule(obj, clonedRule) {
       }
 
       // If no clonedRule or there was no existing prop.
-      if (!clonedRule || !found)
-        rule.append({ prop: k, value: v })
+      if (!clonedRule || !found) rule.append({ prop: k, value: v })
     }
   }
 
