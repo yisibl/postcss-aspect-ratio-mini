@@ -1,0 +1,5 @@
+# Use Unix line endings in all text files. Stolen from JustJavaC
+* text=auto eol=lf
+*.bat             text eol=crlf
+*.cmd             text eol=crlf
+*.ps1             text eol=crlf
