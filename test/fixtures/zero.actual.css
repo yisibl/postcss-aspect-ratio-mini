@@ -1,0 +1,19 @@
+.aspect-box {
+    position: relative;
+}
+
+.aspect-box:before {
+    padding-top: 100%;
+}
+
+.aspect-box:before {
+    padding-top: NaN%;
+}
+
+.aspect-box:before {
+    padding-top: 0%;
+}
+
+.aspect-box:before {
+    padding-top: Infinity%;
+}

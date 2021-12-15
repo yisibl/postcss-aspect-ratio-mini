@@ -1,0 +1,20 @@
+.aspect-box {
+    position: relative;
+}
+
+.aspect-box:before {
+    padding-top: 0;
+}
+
+.aspect-box:before {
+    padding-top: 1;
+}
+
+.aspect-box:before {
+    padding-top: 5.9;
+}
+
+.aspect-box:before {
+    padding-top: 100;
+}
+
